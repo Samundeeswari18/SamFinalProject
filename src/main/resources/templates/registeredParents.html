@@ -1,0 +1,149 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Parents</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Parents</h1>-->
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Parent ID</th>-->
+<!--        <th>First Name</th>-->
+<!--        <th>Last Name</th>-->
+<!--        <th>Phone Number</th>-->
+<!--        <th>Email</th>-->
+<!--        <th>Children</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="parent1 : ${parent}">-->
+<!--        <td th:text="${parent1.parentId}"></td>-->
+<!--        <td th:text="${parent1.parentFirstName}"></td>-->
+<!--        <td th:text="${parent1.parentLastName}"></td>-->
+<!--        <td th:text="${parent1.parentPhoneNumber}"></td>-->
+<!--        <td th:text="${parent1.parentEmail}"></td>-->
+<!--        <td>-->
+<!--            <ul>-->
+<!--                <li th:each="child : ${parent1.children}" th:text="${child.childName}"></li>-->
+<!--            </ul>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Parents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /*height: 100vh;*/
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid lightseagreen;
+        }
+
+        th {
+            background-color: lightseagreen;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: lightblue;
+            color: black;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            table, th, td {
+                width: 100%;
+                display: block;
+            }
+
+            th, td {
+                text-align: right;
+                padding-left: 50%;
+            }
+
+            th::before, td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                text-align: left;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Parent's List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Parent ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Children</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="parent1 : ${parent}">
+        <td th:text="${parent1.parentId}"></td>
+        <td th:text="${parent1.parentFirstName}"></td>
+        <td th:text="${parent1.parentLastName}"></td>
+        <td th:text="${parent1.parentPhoneNumber}"></td>
+        <td th:text="${parent1.parentEmail}"></td>
+        <td>
+            <ul>
+                <li th:each="child : ${parent1.children}" th:text="${child.childName}"></li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment</title>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #007BFF;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            color: #333;
+        }
+        input, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Welcome to Enrollment Page</h2>
+    <form th:action="@{/childRegister}" th:object="${child}" method="post">
+
+<!--        <input type="hidden" id="parentId" name="parentId" th:value="${parentId}">-->
+
+        <label for="name">Child Name:</label>
+        <input type="text" id="name" name="name" th:field="*{childName}" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" th:field="*{dob}" required>
+
+        <label for="medicalInfo">Medical Information:</label>
+        <textarea id="medicalInfo" name="medicalInfo" th:field="*{medicalInfo}"></textarea>
+
+        <label for="photoUrl">Photo URL:</label>
+        <input type="text" id="photoUrl" name="photoUrl" th:field="*{photoUrl}">
+
+        <label for="parentId">Parent ID:</label>
+        <input type="number" id="parentId" name="parentId" th:value="${parentId}" required>
+
+        <button type="submit">Add Child</button>
+    </form>
+</div>
+</body>
+</html>

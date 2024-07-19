@@ -1,0 +1,66 @@
+<!-- src/main/resources/templates/adminDashboard.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .navbar {
+            background-color: cadetblue; /* Blue color */
+            padding: 10px;
+            color: #fff;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .button {
+            background-color: #28a745; /* Green color */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <a href="parentDashboard.html" th:href="@{/parentLogin}">Dashboard</a>
+    <a href="registeredParents.html"  th:href="@{/registeredParents}">Parents</a>
+    <a href="registeredChildren.html"  th:href="@{/registeredChildren}">Children</a>
+    <a href="/logout">Logout</a>
+</div>
+<div class="container">
+
+    <div class="card">
+        <h2>Add Your Child</h2>
+        <a href="childRegistrationForm.html"   th:href="@{/childRegistrationForm}" >Child Registration</a>
+    </div>
+
+    <div class="card">
+        <h2>New Parent</h2>
+        <a href="parentRegistrationForm.html"   th:href="@{/parentRegistrationForm}" >Parent Registration</a>
+    </div>
+</div>
+</body>
+</html>

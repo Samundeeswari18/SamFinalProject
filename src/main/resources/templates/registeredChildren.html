@@ -1,0 +1,95 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Children</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Children</h1>-->
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Parent Id</th>-->
+<!--        <th>Child Name</th>-->
+<!--        <th>Age</th>-->
+<!--        <th>Photo URL</th>-->
+<!--        <th>Medical Info</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="child : ${children}">-->
+<!--        <td th:text="${child.parent.parentId}"></td>-->
+<!--        <td th:text="${child.childName}"></td>-->
+<!--        <td th:text="${child.getAge}"></td> &lt;!&ndash; Assuming you want to calculate age from dateOfBirth &ndash;&gt;-->
+<!--        <td th:text="${child.photoUrl}"></td>-->
+<!--        <td th:text="${child.medicalInfo}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Children's List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: lightseagreen;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<h1>Children's List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Parent Id</th>
+        <th>Child Name</th>
+        <th>Age</th>
+        <th>Photo URL</th>
+        <th>Medical Info</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="child : ${children}">
+        <td th:text="${child.parent.parentId}"></td>
+        <td th:text="${child.childName}"></td>
+        <td th:text="${child.getAge}"></td>
+        <td th:text="${child.photoUrl}"></td>
+        <td th:text="${child.medicalInfo}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
